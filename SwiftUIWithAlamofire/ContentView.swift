@@ -8,6 +8,12 @@
 import SwiftUI
 import Alamofire
 
+enum DataError: Error {
+    case invalidData
+    case invalidResponse
+    case message(_ error: Error?)
+}
+
 struct ContentView: View {
     @State var users = [User]()
     @State var todos = [Todo]()
@@ -48,7 +54,14 @@ struct ContentView: View {
     func loadDataWithURLSession() {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/todos") else { return }
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else { return }
+            guard let data = data else {
+                print(DataError.invalidData)
+                return
+            }
+            guard let response = response as? HTTPURLResponse, 200 ... 299  ~= response.statusCode else {
+                print(DataError.invalidResponse)
+                return
+            }
             do {
                 let decoder = JSONDecoder()
                 let decodedData = try decoder.decode([Todo].self, from: data)
@@ -56,11 +69,12 @@ struct ContentView: View {
                     self.todos = decodedData
                 }
             } catch {
-                print(error)
+                print(DataError.message(error))
             }
             
         }.resume()
     }
+
 }
 
 
