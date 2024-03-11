@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FF0CDFFF2B9F3C1300EB1C0A /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0CDFFE2B9F3C1300EB1C0A /* Todo.swift */; };
+		FF44B1D72B9FA04B002DE255 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF44B1D62B9FA04B002DE255 /* ContentViewModel.swift */; };
 		FF7BE4E92B9F1513005B7DFD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FF7BE4E82B9F1513005B7DFD /* Alamofire */; };
 		FF7BE4EB2B9F1513005B7DFD /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = FF7BE4EA2B9F1513005B7DFD /* AlamofireDynamic */; };
 		FF7BE4ED2B9F161F005B7DFD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7BE4EC2B9F161F005B7DFD /* User.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		FF0CDFFE2B9F3C1300EB1C0A /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		FF44B1D62B9FA04B002DE255 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		FF7BE4EC2B9F161F005B7DFD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FF7CF6F72B9D8EC2005A3184 /* SwiftUIWithAlamofire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIWithAlamofire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF7CF6FA2B9D8EC2005A3184 /* SwiftUIWithAlamofireApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWithAlamofireApp.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				FF7CF7002B9D8EC4005A3184 /* Preview Content */,
 				FF7BE4EC2B9F161F005B7DFD /* User.swift */,
 				FF0CDFFE2B9F3C1300EB1C0A /* Todo.swift */,
+				FF44B1D62B9FA04B002DE255 /* ContentViewModel.swift */,
 			);
 			path = SwiftUIWithAlamofire;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				FF7CF6FB2B9D8EC2005A3184 /* SwiftUIWithAlamofireApp.swift in Sources */,
 				FF7BE4ED2B9F161F005B7DFD /* User.swift in Sources */,
 				FF0CDFFF2B9F3C1300EB1C0A /* Todo.swift in Sources */,
+				FF44B1D72B9FA04B002DE255 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
