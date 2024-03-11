@@ -6,18 +6,41 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct ContentView: View {
+    @State var users = [User]()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List(users) { user in
+                HStack {
+                    Text("\(user.id)")
+                        .padding()
+                        .foregroundStyle(.white)
+                        .background(.gray)
+                        .clipShape(Circle())
+                    VStack(alignment: .leading) {
+                        Text(user.name)
+                            .font(.headline)
+                        Text(user.email)
+                            .font(.subheadline  )
+                    }
+                }
+            }
+            .onAppear(perform: loadData)
+            .navigationTitle("Users")
         }
-        .padding()
+    }
+    
+    func loadData() {
+        AF.request("https://jsonplaceholder.typicode.com/users")
+            .responseDecodable(of: [User].self) { response in
+                guard let users = response.value else { return }
+                self.users = users
+            }
     }
 }
+
 
 #Preview {
     ContentView()
