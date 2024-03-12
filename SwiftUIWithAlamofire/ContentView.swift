@@ -11,7 +11,7 @@ struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
     var body: some View {
         NavigationStack {
-            List(viewModel.todos) { todo in
+            List(viewModel.filteredTodos) { todo in
                 HStack {
                     Text("\(todo.id)")
                         .padding()
@@ -31,6 +31,20 @@ struct ContentView: View {
                 }
             }
             .onAppear(perform: viewModel.fetchTodos)
+            .searchable(text: $viewModel.searchText)
+            .overlay {
+                if viewModel.filteredTodos.isEmpty {
+                    // Default version
+                    // ContentUnavailableView.search(text: viewModel.searchText)
+                    ContentUnavailableView(label: {
+                        Label("No Todos", systemImage: "tray.fill")
+                            .bold()
+                            .foregroundStyle(.red)
+                    }, description: {
+                        Text("Please check todo's title")
+                    })
+                }
+            }
             .navigationTitle("Todos")
         }
     }
